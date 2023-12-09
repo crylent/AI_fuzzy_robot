@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AI_robot"
         xmlns:ui="clr-namespace:AI_robot.UI"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800"
@@ -23,10 +22,10 @@
                 HorizontalAlignment="Center"
                 Background="White">
                 <StackPanel Orientation="Horizontal" Margin="5">
-                    <Button Width="40" Height="40" Margin="2,0" Click="OnClickObstacleButton">
+                    <Button x:Name="ObstacleButton" Width="40" Height="40" Margin="2,0" Click="OnClickObstacleButton">
                         <Image Source="/Icons/obstacle.png" Height="28"/>
                     </Button>
-                    <Button Width="40" Height="40" Margin="2,0" Click="OnClickRobotButton">
+                    <Button x:Name="RobotButton" Width="40" Height="40" Margin="2,0" Click="OnClickRobotButton">
                         <Image Source="/Icons/robot.png" Height="28"/>
                     </Button>
                     <Button Width="40" Height="40" Margin="2,0" Click="OnClickPlayButton">
