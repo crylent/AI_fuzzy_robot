@@ -20,15 +20,23 @@ public partial class FieldCell
     }
 
     private static OnClickAction _onClickAction = OnClickAction.None;
+    private static FieldCell _currentCell = null!;
 
     public FieldCell(Field field, int x, int y)
     {
         _field = field;
         _x = x;
         _y = y;
-        Width = 50;
-        Height = 50;
+        //Width = 50;
+        //Height = 50;
         Background = _empty;
+        
+        InitializeComponent();
+
+        if (_currentCell == null!)
+        {
+            PutRobotHere();
+        }
     }
 
     protected override void OnClick()
@@ -47,13 +55,20 @@ public partial class FieldCell
                 };
                 break;
             case OnClickAction.PutRobot:
-                _field.SetRobotPosition(_x, _y);
-                RobotImage.Visibility = Visibility.Visible;
+                PutRobotHere();
                 break;
             case OnClickAction.None:
             default:
                 break;
         }
+    }
+
+    public void PutRobotHere()
+    {
+        if (_currentCell != null!) _currentCell.RobotImage.Visibility = Visibility.Hidden; // remove from the last cell
+        _currentCell = this;
+        _field.Robot.SetPosition(_x, _y);
+        RobotImage.Visibility = Visibility.Visible;
     }
 
     public static void SetOnClickAction(OnClickAction onClickAction)

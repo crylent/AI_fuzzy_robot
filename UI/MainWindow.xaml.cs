@@ -25,6 +25,7 @@ namespace AI_robot.UI
         private void OnClickPlayButton(object sender, RoutedEventArgs e)
         {
             FieldCell.SetOnClickAction(FieldCell.OnClickAction.None);
+            Field.Field.Robot.MakeMove();
         }
     }
 }
