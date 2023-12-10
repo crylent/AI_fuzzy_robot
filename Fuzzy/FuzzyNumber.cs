@@ -17,7 +17,6 @@ public class FuzzyNumber
         if (value < A || value > D) return 0;
         if (value > B && value < C) return 1;
         if (value < B) return (value - A) / (B - A);
-        //return (value - D) / (D - C);
         return (C - value) / (D - C) + 1;
     }
 }

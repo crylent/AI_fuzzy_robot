@@ -9,7 +9,7 @@ namespace AI_robot;
 public class Robot
 {
     private readonly Field _field;
-    private readonly FuzzyRecent _recentCells = new();
+    private readonly FuzzyRecency _recentCells = new();
     
     private int _x;
     private int _y;
